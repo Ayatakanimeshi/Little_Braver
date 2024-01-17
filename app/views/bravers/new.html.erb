@@ -1,0 +1,30 @@
+<!-- app/views/heroes/new.html.erb -->
+<h1>新規勇者作成</h1>
+
+<%= form_with(model: @hero, local: true) do |form| %>
+  <% if @hero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hero.errors.count, "error") %> が検出されました:</h2>
+
+      <ul>
+      <% @hero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :personality, "性格" %>
+    <%= form.select :personality, Hero.personalities.keys.to_a %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "作成" %>
+  </div>
+<% end %>

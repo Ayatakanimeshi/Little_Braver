@@ -1,0 +1,8 @@
+<h1><%= @scene.title %></h1>
+<p><%= @scene.description %></p>
+
+<div class="foods">
+  <% @foods.each do |food| %>
+    <%= link_to image_tag(food.image), select_food_scene_path(@scene, food_id: food.id), method: :post %>
+  <% end %>
+</div>

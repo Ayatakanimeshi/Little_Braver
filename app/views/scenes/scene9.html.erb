@@ -1,0 +1,8 @@
+<h1><%= @scene.title %></h1>
+<p><%= @scene.description %></p>
+
+<div class="equipments">
+  <% @equipments.each do |equipment| %>
+    <%= link_to image_tag(equipment.image_url), select_equipment_scene_path(@scene, equipment_id: equipment.id), method: :post %>
+  <% end %>
+</div>

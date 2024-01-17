@@ -1,0 +1,6 @@
+<!-- 例: app/views/foods/index.html.erb -->
+<% @foods.each do |food| %>
+  <!-- 食べ物の情報表示 -->
+  <%= link_to '編集', edit_food_path(food) %>
+  <%= link_to '削除', food, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>

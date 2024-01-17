@@ -1,0 +1,6 @@
+<!-- 例: app/views/equipments/index.html.erb -->
+<% @equipments.each do |equipment| %>
+  <!-- 装備品の情報表示 -->
+  <%= link_to '編集', edit_equipment_path(equipment) %>
+  <%= link_to '削除', equipment, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>

@@ -1,0 +1,34 @@
+<!-- 例: app/views/equipments/new.html.erb -->
+<h1>新しい装備品を追加</h1>
+
+<%= form_with(model: @equipment, local: true) do |form| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %>が検出されました:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url, "画像URL" %>
+    <%= form.text_field :image_url %>
+  </div>
+
+  <!-- ここに装備品の他の属性（atk, def, spd, hp, int, mp）の入力フィールドを追加 -->
+
+  <div class="actions">
+    <%= form.submit "追加" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', equipments_path %>
