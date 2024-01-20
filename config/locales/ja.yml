@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      braver:
+        personalities:
+          熱血漢: "熱血漢"
+          冷静沈着: "冷静沈着"
+          自由奔放: "自由奔放"
+          仲間思い: "仲間思い"

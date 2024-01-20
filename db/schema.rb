@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_13_064602) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_20_091014) do
   create_table "bravers", force: :cascade do |t|
     t.string "name", null: false
-    t.string "personality", null: false
+    t.integer "personality"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_13_064602) do
     t.integer "int", null: false
     t.integer "mp", null: false
     t.integer "braver_id", null: false
-    t.integer "food_id", null: false
-    t.integer "equipment_id", null: false
+    t.integer "food_id"
+    t.integer "equipment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["braver_id"], name: "index_parameters_on_braver_id"
