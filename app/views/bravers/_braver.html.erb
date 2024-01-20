@@ -1,0 +1,8 @@
+<div class="bg-white shadow-md rounded p-4 flex flex-col items-center">
+  <h2 class="text-xl font-bold mb-2"><%= braver.name %></h2>
+  <p class="mb-4"><%= t("activerecord.attributes.braver.personalities.#{braver.personality}") %></p>
+  <div class="flex">
+    <%= link_to '旅に出る', scenes_scene1_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+    <%= link_to '引退', braver, data: { turbo_method: :delete }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+</div>
