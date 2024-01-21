@@ -1,0 +1,63 @@
+<div class="max-w-4xl mx-auto mt-10">
+  <div class="bg-gray-800 text-white shadow-lg rounded-lg overflow-hidden">
+    <div class="px-4 py-5 bg-gray-900 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-yellow-300">
+        勇者の詳細
+      </h1>
+      <%= link_to '戻る', bravers_path, class: "text-gray-900 bg-yellow-500 hover:bg-yellow-600 font-bold py-2 px-4 rounded" %>
+    </div>
+    <div class="border-t border-gray-600">
+      <dl>
+        <div class="bg-gray-700 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <dt class="text-sm font-bold text-yellow-400">
+            名前
+          </dt>
+          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
+            <%= @braver.name %>
+          </dd>
+        </div>
+        <div class="bg-gray-800 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <dt class="text-sm font-bold text-yellow-400">
+            性格
+          </dt>
+          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
+            <%= @braver.personality_i18n %>
+          </dd>
+        </div>
+        <div class="bg-gray-700 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <dt class="text-sm font-bold text-yellow-400">
+            ステータス
+          </dt>
+          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <i class="fas fa-fist-raised mr-2"></i>
+                攻撃力: <%= @braver.parameter.atk %>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                防御力: <%= @braver.parameter.def %>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-running mr-2"></i>
+                素早さ: <%= @braver.parameter.spd %>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-heart mr-2"></i>
+                HP: <%= @braver.parameter.hp %>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-brain mr-2"></i>
+                賢さ: <%= @braver.parameter.int %>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-magic mr-2"></i>
+                MP: <%= @braver.parameter.mp %>
+              </div>
+            </div>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
