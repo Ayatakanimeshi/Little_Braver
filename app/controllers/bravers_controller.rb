@@ -1,6 +1,6 @@
 class BraversController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_braver, only: [:show]
+  before_action :set_braver, only: [:show, :edit, :update, :destroy]
 
   def new
     @braver = current_user.bravers.build

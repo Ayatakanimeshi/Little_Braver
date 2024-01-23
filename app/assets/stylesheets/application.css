@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: "PixelMplus";
+  src: url("PixelMplus12-Bold.ttf") format("truetype");
+}
+body {
+  font-family: "PixelMplus", sans-serif;
+}
