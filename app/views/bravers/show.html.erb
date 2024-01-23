@@ -1,63 +1,30 @@
-<div class="max-w-4xl mx-auto mt-10">
-  <div class="bg-gray-800 text-white shadow-lg rounded-lg overflow-hidden">
-    <div class="px-4 py-5 bg-gray-900 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-yellow-300">
-        勇者の詳細
-      </h1>
-      <%= link_to '戻る', bravers_path, class: "text-gray-900 bg-yellow-500 hover:bg-yellow-600 font-bold py-2 px-4 rounded" %>
+<div class="max-w-4xl mx-auto mt-10 p-4 bg-gray-900 text-gray-100 rounded-lg shadow-lg">
+  <div class="border-4 border-white p-4 rounded-lg">
+    <h1 class="text-2xl font-bold border-b-4 border-white pb-2 mb-4 bg-transparent"><%= @braver.name %></h1>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <!-- なまえとせいかくのコンテナを2カラム分に拡大 -->
+      <div class="md:col-span-2 bg-transparent p-3 rounded-lg border-4 border-white">
+        <h2 class="font-bold bg-transparent">なまえ:</h2>
+        <p class="bg-transparent"><%= @braver.name %></p>
+        <h2 class="font-bold bg-transparent mt-4">せいかく:</h2>
+        <p class="bg-transparent"><%= @braver.personality_i18n %></p>
+      </div>
+      <!-- つよさのコンテナを2カラム分に設定 -->
+      <div class="md:col-span-2 bg-transparent p-3 rounded-lg border-4 border-white">
+        
+        <div class="space-y-2 bg-transparent">
+          <p>HP: <%= @braver.parameter.hp %></p>
+          <p>MP: <%= @braver.parameter.mp %></p>
+          <p>こうげき: <%= @braver.parameter.atk %></p>
+          <p>ぼうぎょ: <%= @braver.parameter.def %></p>
+          <p>すばやさ: <%= @braver.parameter.spd %></p>
+          <p>かしこさ: <%= @braver.parameter.int %></p>
+          
+        </div>
+      </div>
     </div>
-    <div class="border-t border-gray-600">
-      <dl>
-        <div class="bg-gray-700 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <dt class="text-sm font-bold text-yellow-400">
-            名前
-          </dt>
-          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
-            <%= @braver.name %>
-          </dd>
-        </div>
-        <div class="bg-gray-800 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <dt class="text-sm font-bold text-yellow-400">
-            性格
-          </dt>
-          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
-            <%= @braver.personality_i18n %>
-          </dd>
-        </div>
-        <div class="bg-gray-700 px-4 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <dt class="text-sm font-bold text-yellow-400">
-            ステータス
-          </dt>
-          <dd class="mt-1 text-sm md:col-span-2 text-yellow-300">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="flex items-center">
-                <i class="fas fa-fist-raised mr-2"></i>
-                攻撃力: <%= @braver.parameter.atk %>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-shield-alt mr-2"></i>
-                防御力: <%= @braver.parameter.def %>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-running mr-2"></i>
-                素早さ: <%= @braver.parameter.spd %>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-heart mr-2"></i>
-                HP: <%= @braver.parameter.hp %>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-brain mr-2"></i>
-                賢さ: <%= @braver.parameter.int %>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-magic mr-2"></i>
-                MP: <%= @braver.parameter.mp %>
-              </div>
-            </div>
-          </dd>
-        </div>
-      </dl>
+    <div class="mt-4 text-center">
+      <%= link_to 'もどる', bravers_path, class: "inline-block border-2 border-white bg-transparent hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" %>
     </div>
   </div>
 </div>
