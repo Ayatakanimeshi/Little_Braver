@@ -3,7 +3,7 @@
     <h2 class="text-2xl font-bold mb-4 text-center text-white"><%= link_to braver.name, braver_path(braver), class: "text-white hover:text-gray-200" %></h2>
     <p class="mb-6 text-center text-lg"><%= t("activerecord.attributes.braver.personalities.#{braver.personality}") %></p>
     <div class="flex justify-center gap-6">
-        <%= link_to '旅に出る', scenes_scene1_path, class: "inline-block border border-white text-white bg-transparent hover:bg-gray-800 font-bold py-3 px-6 rounded" %>
+        <%= link_to '旅に出る', scenes_scene1_braver_path(braver), class: "inline-block border border-white text-white bg-transparent hover:bg-gray-800 font-bold py-3 px-6 rounded" %>
         <%= link_to '引退', braver, data: { turbo_method: :delete, confirm: '本当に引退しますか？' }, class: "inline-block border border-red-600 text-red-600 bg-transparent hover:bg-gray-700 font-bold py-3 px-6 rounded" %>
     </div>
   </div>

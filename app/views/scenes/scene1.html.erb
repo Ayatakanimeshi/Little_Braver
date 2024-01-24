@@ -1,8 +1,11 @@
-<h1><%= @scene.title %></h1>
-<p><%= @scene.description %></p>
-
-<div class="foods">
+<div class="foods grid grid-cols-3 gap-4">
   <% @foods.each do |food| %>
-    <%= link_to image_tag(food.image), select_food_scene_path(@scene, food_id: food.id), method: :post %>
+    <div class="food-item text-center">
+      <%= link_to scenes_scene2_braver_path(@braver), method: :post do %>
+        <%= image_tag(food.image.url, alt: food.name, class: "food-image mx-auto") %>
+        <p class="food-name mt-2"><%= food.name %></p>
+        <%= hidden_field_tag :food_id, food.id %>
+      <% end %>
+    </div>
   <% end %>
 </div>
