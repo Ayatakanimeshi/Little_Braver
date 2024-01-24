@@ -1,8 +1,15 @@
-<h1><%= @scene.title %></h1>
-<p><%= @scene.description %></p>
+<div class="text-center my-4" style="font-size: 40px; font-weight: bold;">
+  <p>よろいをひとつえらぶのじゃ！</p>
+</div>
 
-<div class="equipments">
+<div class="equipments grid grid-cols-3 gap-4">
   <% @equipments.each do |equipment| %>
-    <%= link_to image_tag(equipment.image_url), select_equipment_scene_path(@scene, equipment_id: equipment.id), method: :post %>
+    <div class="equipment-item text-center">
+      <%= link_to scenes_scene7_braver_path(@braver, equipment), method: :post do %>
+        <%= image_tag(equipment.image.url, alt: equipment.name, class: "equipment-image mx-auto") %>
+        <p class="equipment-name mt-2"><%= equipment.name %></p>
+        <%= hidden_field_tag :equipment_id, equipment.id %>
+      <% end %>
+    </div>
   <% end %>
 </div>

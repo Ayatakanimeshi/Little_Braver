@@ -1,7 +1,5 @@
 class Braver < ApplicationRecord
-  belongs_to :user
   has_one :parameter, dependent: :destroy
-  has_many :equipments, dependent: :destroy
 
   enum personality: { 熱血漢: 0, 冷静沈着: 1, 自由奔放: 2, 仲間思い: 3 }
 

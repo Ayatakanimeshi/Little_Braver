@@ -1,7 +1,5 @@
 class Parameter < ApplicationRecord
   belongs_to :braver, optional: true # 関連づけられたモデルが必須ではないという意味
-  belongs_to :food, optional: true
-  belongs_to :equipment, optional: true
 
   def increment_parameters(food)
     self.atk += food.atk
