@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_23_115244) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_24_141033) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,12 +50,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_115244) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name", null: false
+    t.string "category", null: false
     t.integer "rarity", null: false
-    t.string "image", null: false
-    t.integer "braver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["braver_id"], name: "index_equipment_on_braver_id"
+    t.integer "atk"
+    t.integer "def"
+    t.integer "spd"
+    t.integer "int"
+    t.integer "hp"
+    t.integer "mp"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -114,7 +118,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_115244) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bravers", "users"
-  add_foreign_key "equipment", "bravers"
   add_foreign_key "parameters", "bravers"
   add_foreign_key "parameters", "equipment"
   add_foreign_key "parameters", "foods"
