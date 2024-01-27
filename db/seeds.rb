@@ -8,7 +8,9 @@
 foods = [
   { name: "izu", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/izumi1.jpeg'),atk: 100, def: 11, spd: 23, int: 22, hp: 95, mp: 90 },
   { name: "maru", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/IMG_3839.png'),atk: 20, def: 13, spd: 43, int: 22, hp: 105, mp: 500 },
-  { name: "kaza", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/kazamagirl.png'),atk: 50, def: 41, spd: 31, int: 12, hp: 205, mp: 10 }
+  { name: "kaza", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/kazamagirl.png'),atk: 50, def: 41, spd: 31, int: 12, hp: 205, mp: 10 },
+  { name: "calpis", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/カルピスおじさん.jpg'),atk: 120, def: 13, spd: 43, int: 122, hp: 105, mp: 80 },
+  { name: "penguin", rarity: 1, image_path: Rails.root.join('app/assets/images/foods/ペンギンじじい.jpg'),atk: 50, def: 241, spd: 131, int: 72, hp: 205, mp: 50 }
 ]
 
 equipments = [
