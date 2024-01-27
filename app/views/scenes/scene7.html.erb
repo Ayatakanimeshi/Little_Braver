@@ -4,10 +4,12 @@
 <div class="equipments grid grid-cols-3 gap-4">
   <% @equipments.each do |equipment| %>
     <div class="equipment-item text-center">
-      <%= link_to scenes_scene8_braver_path(@braver, equipment), method: :post do %>
+      <%= form_with(url: apply_equipment_braver_path(@braver), method: :post, local: true) do |form| %>
+        <%= form.hidden_field :equipment_id, value: equipment.id %>
+        <%= form.hidden_field :current_scene_number, value: 7 %>
         <%= image_tag(equipment.image.url, alt: equipment.name, class: "equipment-image mx-auto") %>
         <p class="equipment-name mt-2"><%= equipment.name %></p>
-        <%= hidden_field_tag :equipment_id, equipment.id %>
+        <%= form.submit "このたてをえらぶ", class: "submit-btn" %>
       <% end %>
     </div>
   <% end %>

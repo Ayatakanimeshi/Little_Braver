@@ -1,7 +1,7 @@
 class Parameter < ApplicationRecord
   belongs_to :braver, optional: true # 関連づけられたモデルが必須ではないという意味
 
-  def increment_parameters(food)
+  def food_parameters(food)
     self.atk += food.atk
     self.def += food.def
     self.spd += food.spd
@@ -11,13 +11,13 @@ class Parameter < ApplicationRecord
     save
   end
 
-  def equip(equipment)
-    parameter.atk += equipment.atk
-    parameter.def += equipment.def
-    parameter.spd += equipment.spd
-    parameter.hp += equipment.hp
-    parameter.int += equipment.int
-    parameter.mp += equipment.mp
-    parameter.save
+  def equip_parameters(equipment)
+    self.atk += equipment.atk
+    self.def += equipment.def
+    self.spd += equipment.spd
+    self.hp += equipment.hp
+    self.int += equipment.int
+    self.mp += equipment.mp
+    save
   end
 end

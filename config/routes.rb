@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       get 'scenes/scene8', to: 'scenes#scene8'
       get 'scenes/scene9', to: 'scenes#scene9'
       get 'scenes/scene10', to: 'scenes#scene10'
-      post 'scenes/select_food', to: 'scenes#select_food', as: :select_food
+      post 'scenes/apply_food', as: :apply_food
+      post 'scenes/apply_equipment', as: :apply_equipment
     end
   end
 end

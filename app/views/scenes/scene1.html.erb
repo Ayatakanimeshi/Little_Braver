@@ -6,10 +6,12 @@
 <div class="foods grid grid-cols-3 gap-4">
   <% @foods.each do |food| %>
     <div class="food-item text-center">
-      <%= link_to scenes_scene2_braver_path(@braver), method: :post do %>
+      <%= form_with(url: apply_food_braver_path(@braver), method: :post, local: true) do |form| %>
+        <%= form.hidden_field :food_id, value: food.id %>
+        <%= form.hidden_field :current_scene_number, value: 1 %>
         <%= image_tag(food.image.url, alt: food.name, class: "food-image mx-auto") %>
         <p class="food-name mt-2"><%= food.name %></p>
-        <%= hidden_field_tag :food_id, food.id %>
+        <%= form.submit "このスパイスを選ぶ", class: "submit-btn" %>
       <% end %>
     </div>
   <% end %>
