@@ -20,4 +20,39 @@ class Parameter < ApplicationRecord
     self.mp += equipment.mp
     save
   end
+
+  alias_attribute :dfe, :def
+
+  def total_score
+    hp + mp + atk + dfe + spd + int
+  end
+
+  def highest_parameter_job
+    parameters = {
+      "HP" => hp,
+      "MP" => mp,
+      "こうげき" => atk,
+      "ぼうぎょ" => dfe, # 予約語を避けるための変更が必要な場合は、適切な属性名に
+      "すばやさ" => spd,
+      "かしこさ" => int
+    }
+    
+    highest = parameters.max_by { |_, value| value }
+    case highest.first
+    when "HP"
+      "戦士"
+    when "MP"
+      "魔法使い" 
+    when "かしこさ"
+      "僧侶"
+    when "こうげき"
+      "武闘家"
+    when "ぼうぎょ"
+      "騎士"
+    when "すばやさ"
+      "盗賊"
+    else
+      "村人"
+    end
+  end
 end
