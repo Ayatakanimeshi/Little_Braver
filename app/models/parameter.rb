@@ -40,17 +40,17 @@ class Parameter < ApplicationRecord
     highest = parameters.max_by { |_, value| value }
     case highest.first
     when "HP"
-      "戦士"
+      "せんし"
     when "MP"
-      "魔法使い" 
+      "まほうつかい" 
     when "かしこさ"
-      "僧侶"
+      "そうりょ"
     when "こうげき"
-      "武闘家"
+      "ぶとうか"
     when "ぼうぎょ"
-      "騎士"
+      "きし"
     when "すばやさ"
-      "盗賊"
+      "とうぞく"
     else
       "村人"
     end

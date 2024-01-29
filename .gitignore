@@ -30,8 +30,8 @@
 !/tmp/storage/.keep
 
 /public/assets
-/images/foods/*
-/images/equipments/*
+/images/foods/
+/images/equipments/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

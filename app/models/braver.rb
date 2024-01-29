@@ -46,15 +46,59 @@ class Braver < ApplicationRecord
   end
 
   def determine_job
-    return "村人" unless parameter # parameter が nil の場合は "村人" を返す
+    # SSS, SS, S ランクは常に「ゆうしゃ」とする
+    return "ゆうしゃ" if ["SSS", "SS", "S"].include?(rank)
+    
+    # それ以外のランクはParameterモデルで職業を決定
+    parameter&.highest_parameter_job || "村人"
+  end
 
-    case rank
-    when "GOD"
-      "神"
-    when "SSS", "SS", "S"
-      "勇者"
+  def determine_title
+    job = determine_job # 職業を決定
+
+    if ["SSS", "SS", "S"].include?(rank)
+      "#{standard_title} #{job}" # SSS, SS, S ランクの場合の称号
     else
-      parameter.highest_parameter_job
+      "#{job_specific_title(job)} #{job}" # Aランク以下の場合の称号
+    end
+  end
+
+  private
+
+  def standard_title
+    case rank
+    when "SSS"
+      "でんせつの"
+    when "SS"
+      "もうすぐせかいをすくう"
+    when "S"
+      "きのうたびにでた"
+    end
+  end
+
+  def job_specific_title(job)
+    case rank
+    when "A"
+      case job
+      when "せんし" then "大陸の"
+      when "まほうつかい" then "賢者の"
+      when "そうりょ" then "守護者の"
+      when "ぶとうか" then "守護者の"
+      when "きし" then "守護者の"
+      when "とうぞく" then "守護者の"
+      end
+    when "B"
+      "地域の"
+    when "C"
+      "村の"
+    when "D"
+      "村の"
+    when "E"
+      "村の"
+    when "F"
+      "村の"
+    else
+      "一般的な"
     end
   end
 end
